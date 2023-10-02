@@ -13,7 +13,7 @@
 	<name>ChunJun : Connectors : Elasticsearch5</name>
 
 	<properties>
-		<elasticsearch.version>5.3.3</elasticsearch.version>
+		<elasticsearch.version>6.0.0</elasticsearch.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
+			<version>1.7.34</version>
 		</dependency>
 
 		<dependency>
@@ -117,14 +117,10 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<copy todir="${basedir}/../../${dist.dir}/connector/elasticsearch5/"
-									  file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
-								<move file="${basedir}/../../${dist.dir}/connector/elasticsearch5/${project.artifactId}-${project.version}.jar"
-									  tofile="${basedir}/../../${dist.dir}/connector/elasticsearch5/${project.artifactId}-${git.branch}.jar"/>
+								<copy todir="${basedir}/../../${dist.dir}/connector/elasticsearch5/" file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
+								<move file="${basedir}/../../${dist.dir}/connector/elasticsearch5/${project.artifactId}-${project.version}.jar" tofile="${basedir}/../../${dist.dir}/connector/elasticsearch5/${project.artifactId}-${git.branch}.jar"/>
 								<delete>
-									<fileset dir="${basedir}/../../${dist.dir}/connector/elasticsearch5/"
-											 includes="${project.artifactId}-*.jar"
-											 excludes="${project.artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../../${dist.dir}/connector/elasticsearch5/" includes="${project.artifactId}-*.jar" excludes="${project.artifactId}-${git.branch}.jar"/>
 								</delete>
 							</tasks>
 						</configuration>
