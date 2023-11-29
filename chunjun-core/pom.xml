@@ -43,13 +43,13 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.7</version>
+			<version>1.4.12</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
-			<version>1.1.7</version>
+			<version>1.4.12</version>
 		</dependency>
 
         <dependency>
@@ -348,14 +348,10 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <copy todir="${basedir}/../${dist.dir}/"
-									  file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
-                                <move file="${basedir}/../${dist.dir}/${project.artifactId}-${project.version}.jar"
-                                      tofile="${basedir}/../${dist.dir}/${project.artifactId}-${git.branch}.jar" />
+                                <copy todir="${basedir}/../${dist.dir}/" file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
+                                <move file="${basedir}/../${dist.dir}/${project.artifactId}-${project.version}.jar" tofile="${basedir}/../${dist.dir}/${project.artifactId}-${git.branch}.jar"/>
 								<delete>
-									<fileset dir="${basedir}/../${dist.dir}/"
-											 includes="${project.artifactId}-*.jar"
-											 excludes="${project.artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../${dist.dir}/" includes="${project.artifactId}-*.jar" excludes="${project.artifactId}-${git.branch}.jar"/>
 								</delete>
 
                             </tasks>
