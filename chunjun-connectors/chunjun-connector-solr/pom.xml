@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
-			<version>7.4.0</version>
+			<version>8.11.3</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -64,16 +64,12 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<copy todir="${basedir}/../../${dist.dir}/connector/solr/"
-									  file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
+								<copy todir="${basedir}/../../${dist.dir}/connector/solr/" file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
 								<!--suppress UnresolvedMavenProperty -->
-								<move file="${basedir}/../../${dist.dir}/connector/solr/${project.artifactId}-${project.version}.jar"
-									  tofile="${basedir}/../../${dist.dir}/connector/solr/${project.artifactId}-${git.branch}.jar"/>
+								<move file="${basedir}/../../${dist.dir}/connector/solr/${project.artifactId}-${project.version}.jar" tofile="${basedir}/../../${dist.dir}/connector/solr/${project.artifactId}-${git.branch}.jar"/>
 								<delete>
 									<!--suppress UnresolvedMavenProperty -->
-									<fileset dir="${basedir}/../../${dist.dir}/connector/solr/"
-											 includes="${project.artifactId}-*.jar"
-											 excludes="${project.artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../../${dist.dir}/connector/solr/" includes="${project.artifactId}-*.jar" excludes="${project.artifactId}-${git.branch}.jar"/>
 								</delete>
 							</tasks>
 						</configuration>
