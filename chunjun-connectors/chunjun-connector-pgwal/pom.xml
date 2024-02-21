@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.2.19</version>
+			<version>42.7.2</version>
 		</dependency>
 
 		<dependency>
@@ -124,7 +124,7 @@
 							<order>com.dtstack,org.apache.flink,org.apache.flink.shaded,,javax,java,scala,\#</order>
 						</importOrder>
 
-						<removeUnusedImports />
+						<removeUnusedImports/>
 					</java>
 				</configuration>
 				<executions>
@@ -179,14 +179,10 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<copy todir="${basedir}/../../${dist.dir}/connector/pgwal"
-									  file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
-								<move file="${basedir}/../../${dist.dir}/connector/pgwal/${project.artifactId}-${project.version}.jar"
-									  tofile="${basedir}/../../${dist.dir}/connector/pgwal/${project.artifactId}-${git.branch}.jar"/>
+								<copy todir="${basedir}/../../${dist.dir}/connector/pgwal" file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
+								<move file="${basedir}/../../${dist.dir}/connector/pgwal/${project.artifactId}-${project.version}.jar" tofile="${basedir}/../../${dist.dir}/connector/pgwal/${project.artifactId}-${git.branch}.jar"/>
 								<delete>
-									<fileset dir="${basedir}/../../${dist.dir}/connector/pgwal/"
-											 includes="${project.artifactId}-*.jar"
-											 excludes="${project.artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../../${dist.dir}/connector/pgwal/" includes="${project.artifactId}-*.jar" excludes="${project.artifactId}-${git.branch}.jar"/>
 								</delete>
 							</tasks>
 						</configuration>
