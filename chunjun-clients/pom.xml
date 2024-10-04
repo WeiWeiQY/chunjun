@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
-            <version>1.8.2</version>
+            <version>1.11.4</version>
         </dependency>
 
 		<dependency>
@@ -124,7 +124,7 @@
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
 
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer" />
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"/>
                                 <!-- The service transformer is needed to merge META-INF/services files -->
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer"/>
@@ -180,14 +180,10 @@
                         </goals>
                         <configuration>
                             <tasks>
-								<move file="${basedir}/target/${artifactId}-${project.version}.jar"
-									  tofile="${basedir}/target/${artifactId}-${git.branch}.jar"/>
-								<copy todir="${basedir}/../lib/"
-									  file="${basedir}/target/${artifactId}-${git.branch}.jar"/>
+								<move file="${basedir}/target/${artifactId}-${project.version}.jar" tofile="${basedir}/target/${artifactId}-${git.branch}.jar"/>
+								<copy todir="${basedir}/../lib/" file="${basedir}/target/${artifactId}-${git.branch}.jar"/>
 								<delete>
-									<fileset dir="${basedir}/../lib"
-											 includes="${artifactId}-*.jar"
-											 excludes="${artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../lib" includes="${artifactId}-*.jar" excludes="${artifactId}-${git.branch}.jar"/>
 								</delete>
                             </tasks>
                         </configuration>
