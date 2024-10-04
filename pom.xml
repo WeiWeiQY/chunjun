@@ -29,7 +29,7 @@
 		<flink.version>1.12.7</flink.version>
 		<scala.binary.version>2.12</scala.binary.version>
 		<prometheus.version>0.8.1</prometheus.version>
-		<hadoop.version>2.7.5</hadoop.version>
+		<hadoop.version>3.4.0</hadoop.version>
 		<http.version>4.5.3</http.version>
 		<guava.version>19.0</guava.version>
 		<!-- fix CVE-2021-45105 -->
@@ -221,7 +221,7 @@
 		<dependency>
 			<groupId>org.apache.avro</groupId>
 			<artifactId>avro</artifactId>
-			<version>1.8.2</version>
+			<version>1.11.4</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -440,7 +440,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<hadoop.version>2.7.5</hadoop.version>
+				<hadoop.version>3.4.0</hadoop.version>
 			</properties>
 			<modules>
 				<!--- =========================================== 离线 =====================                                                                             ========================= -->
