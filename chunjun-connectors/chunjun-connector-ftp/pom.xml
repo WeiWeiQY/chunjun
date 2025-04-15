@@ -54,13 +54,13 @@ under the License.
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
+			<version>5.4.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>easyexcel</artifactId>
-			<version>3.0.1</version>
+			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -126,14 +126,10 @@ under the License.
 						</goals>
 						<configuration>
 							<tasks>
-								<copy todir="${basedir}/../../${dist.dir}/connector/ftp/"
-									  file="${basedir}/target/${artifactId}-${project.version}.jar"/>
-								<move file="${basedir}/../../${dist.dir}/connector/ftp/${artifactId}-${project.version}.jar"
-									  tofile="${basedir}/../../${dist.dir}/connector/ftp/${artifactId}-${git.branch}.jar"/>
+								<copy todir="${basedir}/../../${dist.dir}/connector/ftp/" file="${basedir}/target/${artifactId}-${project.version}.jar"/>
+								<move file="${basedir}/../../${dist.dir}/connector/ftp/${artifactId}-${project.version}.jar" tofile="${basedir}/../../${dist.dir}/connector/ftp/${artifactId}-${git.branch}.jar"/>
 								<delete>
-									<fileset dir="${basedir}/../../${dist.dir}/connector/ftp/"
-											 includes="${artifactId}-*.jar"
-											 excludes="${artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../../${dist.dir}/connector/ftp/" includes="${artifactId}-*.jar" excludes="${artifactId}-${git.branch}.jar"/>
 								</delete>
 							</tasks>
 						</configuration>
