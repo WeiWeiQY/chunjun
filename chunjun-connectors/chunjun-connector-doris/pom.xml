@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.10.1</version>
+			<version>2.12.7.1</version>
 		</dependency>
 
 		<dependency>
@@ -65,7 +65,7 @@
 						<configuration>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
 							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer" />
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"/>
 							</transformers>
 							<relocations>
 								<relocation>
@@ -103,16 +103,12 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<copy todir="${basedir}/../../${dist.dir}/connector/doris/"
-									  file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
+								<copy todir="${basedir}/../../${dist.dir}/connector/doris/" file="${basedir}/target/${project.artifactId}-${project.version}.jar"/>
 								<!--suppress UnresolvedMavenProperty -->
-								<move file="${basedir}/../../${dist.dir}/connector/doris/${project.artifactId}-${project.version}.jar"
-									  tofile="${basedir}/../../${dist.dir}/connector/doris/${project.artifactId}-${git.branch}.jar"/>
+								<move file="${basedir}/../../${dist.dir}/connector/doris/${project.artifactId}-${project.version}.jar" tofile="${basedir}/../../${dist.dir}/connector/doris/${project.artifactId}-${git.branch}.jar"/>
 								<delete>
 									<!--suppress UnresolvedMavenProperty -->
-									<fileset dir="${basedir}/../../${dist.dir}/connector/doris/"
-											 includes="${project.artifactId}-*.jar"
-											 excludes="${project.artifactId}-${git.branch}.jar"/>
+									<fileset dir="${basedir}/../../${dist.dir}/connector/doris/" includes="${project.artifactId}-*.jar" excludes="${project.artifactId}-${git.branch}.jar"/>
 								</delete>
 							</tasks>
 						</configuration>
